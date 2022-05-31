@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		3100108D2844371F006D54EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3100108C2844371F006D54EB /* AppDelegate.swift */; };
 		3100108F2844371F006D54EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3100108E2844371F006D54EB /* SceneDelegate.swift */; };
-		310010912844371F006D54EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310010902844371F006D54EB /* ViewController.swift */; };
 		310010942844371F006D54EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 310010922844371F006D54EB /* Main.storyboard */; };
 		3100109628443720006D54EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3100109528443720006D54EB /* Assets.xcassets */; };
 		3100109928443720006D54EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3100109728443720006D54EB /* LaunchScreen.storyboard */; };
+		310010A4284437BE006D54EB /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310010A2284437BE006D54EB /* HomeTableViewController.swift */; };
+		310010AA28443BF6006D54EB /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310010A828443BF6006D54EB /* HomeTableViewCell.swift */; };
+		310010AB28443BF6006D54EB /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310010A928443BF6006D54EB /* HomeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		310010892844371F006D54EB /* Coffee Pack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coffee Pack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3100108C2844371F006D54EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3100108E2844371F006D54EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		310010902844371F006D54EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		310010932844371F006D54EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3100109528443720006D54EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3100109828443720006D54EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3100109A28443720006D54EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		310010A2284437BE006D54EB /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		310010A828443BF6006D54EB /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		310010A928443BF6006D54EB /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,49 @@
 		3100108B2844371F006D54EB /* Coffee Pack */ = {
 			isa = PBXGroup;
 			children = (
+				310010A628443BC4006D54EB /* Components */,
+				310010A028443777006D54EB /* Views */,
 				3100108C2844371F006D54EB /* AppDelegate.swift */,
 				3100108E2844371F006D54EB /* SceneDelegate.swift */,
-				310010902844371F006D54EB /* ViewController.swift */,
 				310010922844371F006D54EB /* Main.storyboard */,
 				3100109528443720006D54EB /* Assets.xcassets */,
 				3100109728443720006D54EB /* LaunchScreen.storyboard */,
 				3100109A28443720006D54EB /* Info.plist */,
 			);
 			path = "Coffee Pack";
+			sourceTree = "<group>";
+		};
+		310010A028443777006D54EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				310010A128443786006D54EB /* Home */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		310010A128443786006D54EB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				310010A2284437BE006D54EB /* HomeTableViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		310010A628443BC4006D54EB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				310010A728443BCC006D54EB /* HomeTableCell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		310010A728443BCC006D54EB /* HomeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				310010A828443BF6006D54EB /* HomeTableViewCell.swift */,
+				310010A928443BF6006D54EB /* HomeTableViewCell.xib */,
+			);
+			path = HomeTableCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +165,7 @@
 			files = (
 				3100109928443720006D54EB /* LaunchScreen.storyboard in Resources */,
 				3100109628443720006D54EB /* Assets.xcassets in Resources */,
+				310010AB28443BF6006D54EB /* HomeTableViewCell.xib in Resources */,
 				310010942844371F006D54EB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +177,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				310010912844371F006D54EB /* ViewController.swift in Sources */,
 				3100108D2844371F006D54EB /* AppDelegate.swift in Sources */,
 				3100108F2844371F006D54EB /* SceneDelegate.swift in Sources */,
+				310010AA28443BF6006D54EB /* HomeTableViewCell.swift in Sources */,
+				310010A4284437BE006D54EB /* HomeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,9 +330,11 @@
 				DEVELOPMENT_TEAM = F5H2L3L25L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Coffee Pack/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Coffe Pack";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -304,7 +346,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,9 +360,11 @@
 				DEVELOPMENT_TEAM = F5H2L3L25L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Coffee Pack/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Coffe Pack";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -332,7 +376,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
