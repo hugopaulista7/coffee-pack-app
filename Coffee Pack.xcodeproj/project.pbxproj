@@ -12,9 +12,12 @@
 		310010942844371F006D54EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 310010922844371F006D54EB /* Main.storyboard */; };
 		3100109628443720006D54EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3100109528443720006D54EB /* Assets.xcassets */; };
 		3100109928443720006D54EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3100109728443720006D54EB /* LaunchScreen.storyboard */; };
-		310010A4284437BE006D54EB /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310010A2284437BE006D54EB /* HomeTableViewController.swift */; };
+		310010A4284437BE006D54EB /* ListHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310010A2284437BE006D54EB /* ListHomeTableViewController.swift */; };
 		310010AA28443BF6006D54EB /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310010A828443BF6006D54EB /* HomeTableViewCell.swift */; };
 		310010AB28443BF6006D54EB /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310010A928443BF6006D54EB /* HomeTableViewCell.xib */; };
+		3176893B2846B4AC00E8D1BA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176893A2846B4AC00E8D1BA /* MapViewController.swift */; };
+		3176893E2846B58A00E8D1BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3176893D2846B58A00E8D1BA /* MapKit.framework */; };
+		317689412846B6B100E8D1BA /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317689402846B6B100E8D1BA /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +28,12 @@
 		3100109528443720006D54EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3100109828443720006D54EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3100109A28443720006D54EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		310010A2284437BE006D54EB /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		310010A2284437BE006D54EB /* ListHomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHomeTableViewController.swift; sourceTree = "<group>"; };
 		310010A828443BF6006D54EB /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		310010A928443BF6006D54EB /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		3176893A2846B4AC00E8D1BA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3176893D2846B58A00E8D1BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		317689402846B6B100E8D1BA /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3176893E2846B58A00E8D1BA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +53,7 @@
 			children = (
 				3100108B2844371F006D54EB /* Coffee Pack */,
 				3100108A2844371F006D54EB /* Products */,
+				3176893C2846B58A00E8D1BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +68,9 @@
 		3100108B2844371F006D54EB /* Coffee Pack */ = {
 			isa = PBXGroup;
 			children = (
+				3176893F2846B69E00E8D1BA /* Services */,
 				310010A628443BC4006D54EB /* Components */,
-				310010A028443777006D54EB /* Views */,
+				310010A028443777006D54EB /* Controllers */,
 				3100108C2844371F006D54EB /* AppDelegate.swift */,
 				3100108E2844371F006D54EB /* SceneDelegate.swift */,
 				310010922844371F006D54EB /* Main.storyboard */,
@@ -72,20 +81,21 @@
 			path = "Coffee Pack";
 			sourceTree = "<group>";
 		};
-		310010A028443777006D54EB /* Views */ = {
+		310010A028443777006D54EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				310010A128443786006D54EB /* Home */,
+				317689392846B46100E8D1BA /* Map */,
+				310010A128443786006D54EB /* ListHome */,
 			);
-			path = Views;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		310010A128443786006D54EB /* Home */ = {
+		310010A128443786006D54EB /* ListHome */ = {
 			isa = PBXGroup;
 			children = (
-				310010A2284437BE006D54EB /* HomeTableViewController.swift */,
+				310010A2284437BE006D54EB /* ListHomeTableViewController.swift */,
 			);
-			path = Home;
+			path = ListHome;
 			sourceTree = "<group>";
 		};
 		310010A628443BC4006D54EB /* Components */ = {
@@ -103,6 +113,30 @@
 				310010A928443BF6006D54EB /* HomeTableViewCell.xib */,
 			);
 			path = HomeTableCell;
+			sourceTree = "<group>";
+		};
+		317689392846B46100E8D1BA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3176893A2846B4AC00E8D1BA /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		3176893C2846B58A00E8D1BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3176893D2846B58A00E8D1BA /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3176893F2846B69E00E8D1BA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				317689402846B6B100E8D1BA /* LocationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,7 +214,9 @@
 				3100108D2844371F006D54EB /* AppDelegate.swift in Sources */,
 				3100108F2844371F006D54EB /* SceneDelegate.swift in Sources */,
 				310010AA28443BF6006D54EB /* HomeTableViewCell.swift in Sources */,
-				310010A4284437BE006D54EB /* HomeTableViewController.swift in Sources */,
+				3176893B2846B4AC00E8D1BA /* MapViewController.swift in Sources */,
+				317689412846B6B100E8D1BA /* LocationService.swift in Sources */,
+				310010A4284437BE006D54EB /* ListHomeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
