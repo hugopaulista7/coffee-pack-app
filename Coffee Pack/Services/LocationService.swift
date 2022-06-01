@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-let DISTANCE: NSNumber = 600
+let DISTANCE: NSNumber = 1600
 
 class LocationService {
     

@@ -15,6 +15,9 @@
 		310010A4284437BE006D54EB /* ListHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310010A2284437BE006D54EB /* ListHomeTableViewController.swift */; };
 		310010AA28443BF6006D54EB /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310010A828443BF6006D54EB /* HomeTableViewCell.swift */; };
 		310010AB28443BF6006D54EB /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310010A928443BF6006D54EB /* HomeTableViewCell.xib */; };
+		314E451328478FCD00D42F2E /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314E451228478FCD00D42F2E /* Company.swift */; };
+		314E4515284790BD00D42F2E /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314E4514284790BD00D42F2E /* URLSession.swift */; };
+		314E45172847930700D42F2E /* CompaniesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314E45162847930700D42F2E /* CompaniesApiService.swift */; };
 		3176893B2846B4AC00E8D1BA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176893A2846B4AC00E8D1BA /* MapViewController.swift */; };
 		3176893E2846B58A00E8D1BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3176893D2846B58A00E8D1BA /* MapKit.framework */; };
 		317689412846B6B100E8D1BA /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317689402846B6B100E8D1BA /* LocationService.swift */; };
@@ -31,6 +34,9 @@
 		310010A2284437BE006D54EB /* ListHomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHomeTableViewController.swift; sourceTree = "<group>"; };
 		310010A828443BF6006D54EB /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		310010A928443BF6006D54EB /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		314E451228478FCD00D42F2E /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		314E4514284790BD00D42F2E /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		314E45162847930700D42F2E /* CompaniesApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesApiService.swift; sourceTree = "<group>"; };
 		3176893A2846B4AC00E8D1BA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3176893D2846B58A00E8D1BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		317689402846B6B100E8D1BA /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -68,6 +74,7 @@
 		3100108B2844371F006D54EB /* Coffee Pack */ = {
 			isa = PBXGroup;
 			children = (
+				314E451128478FAF00D42F2E /* Models */,
 				3176893F2846B69E00E8D1BA /* Services */,
 				310010A628443BC4006D54EB /* Components */,
 				310010A028443777006D54EB /* Controllers */,
@@ -115,6 +122,14 @@
 			path = HomeTableCell;
 			sourceTree = "<group>";
 		};
+		314E451128478FAF00D42F2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				314E451228478FCD00D42F2E /* Company.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		317689392846B46100E8D1BA /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				317689402846B6B100E8D1BA /* LocationService.swift */,
+				314E4514284790BD00D42F2E /* URLSession.swift */,
+				314E45162847930700D42F2E /* CompaniesApiService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -215,7 +232,10 @@
 				3100108F2844371F006D54EB /* SceneDelegate.swift in Sources */,
 				310010AA28443BF6006D54EB /* HomeTableViewCell.swift in Sources */,
 				3176893B2846B4AC00E8D1BA /* MapViewController.swift in Sources */,
+				314E451328478FCD00D42F2E /* Company.swift in Sources */,
+				314E45172847930700D42F2E /* CompaniesApiService.swift in Sources */,
 				317689412846B6B100E8D1BA /* LocationService.swift in Sources */,
+				314E4515284790BD00D42F2E /* URLSession.swift in Sources */,
 				310010A4284437BE006D54EB /* ListHomeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

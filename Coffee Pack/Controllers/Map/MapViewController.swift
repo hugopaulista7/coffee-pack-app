@@ -8,7 +8,9 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+let COMPANIES_PATH = "https://aqueous-citadel-64961.herokuapp.com/companies"
+
+class MapViewController: UIViewController, MKMapViewDelegate {
     
 
     // MARK: - IBOutlets
@@ -16,37 +18,63 @@ class MapViewController: UIViewController {
     
     // MARK: - Services
     private let locationService: LocationService = LocationService()
+    private let companiesSerivce: CompaniesApiService = CompaniesApiService()
     
     // MARK: - Declarations
+    private var companies: [Company] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getData()
         setupMap()
-
     }
     
     func setupMap() {
+        mapViewOutlet.delegate = self
         locationService.handleMapAuthorization()
         guard let distance = locationService.getLocationDisance() else { return }
         let coords = locationService.getCoords()
         let region = MKCoordinateRegion(center: coords, latitudinalMeters: distance, longitudinalMeters: distance)
         mapViewOutlet.setRegion(region, animated: true)
-        mapViewOutlet.setCenter(coords, animated: true)
         mapViewOutlet.showsUserLocation = true
         mapViewOutlet.pointOfInterestFilter = .excludingAll
-        mapViewOutlet.mapType = .mutedStandard
-        
-        addAnnotations()
+    }
+    
+    func getData() {
+        companiesSerivce.getData(COMPANIES_PATH) { (result: [Company]) in
+            self.companies = result
+            self.addAnnotations()
+        }
     }
     
     func addAnnotations() {
-        // -26.9184895,-48.6528877
+        for item in companies {
+            guard let latitude = Double(item.lat) else { continue }
+            guard let longitude = Double(item.long) else { continue }
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            annotation.title = item.name
+            
+            mapViewOutlet.addAnnotation(annotation)
+        }
+    }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
         
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: -26.9184895, longitude: -48.6528877)
-        annotation.title = "Pizzaria"
-        mapViewOutlet.addAnnotation(annotation)
+        let identifier = "PingIdentificadorAAAAA"
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
+        if annotationView == nil {
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.markerTintColor = .black
+            annotationView?.glyphTintColor = .systemGreen
+        } else {
+            annotationView?.annotation = annotation
+        }
+
+        return annotationView;
     }
  }
 
