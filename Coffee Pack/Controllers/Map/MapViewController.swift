@@ -57,24 +57,40 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             mapViewOutlet.addAnnotation(annotation)
         }
+
     }
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
         }
         
-        let identifier = "PingIdentificadorAAAAA"
+        let identifier = "Pin"
         
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.markerTintColor = .black
             annotationView?.glyphTintColor = .systemGreen
+            annotationView?.canShowCallout = true
+            annotationView?.animatesWhenAdded = true
+            
+            let button = UIButton(type: .custom) as UIButton
+            button.frame.size.width = 44
+            button.frame.size.height = 44
+            button.backgroundColor = .systemGreen
+            button.setTitle("Teste", for: .normal)
+            button.setTitleColor(.black, for: .normal)
+            annotationView?.leftCalloutAccessoryView = button
+            
         } else {
             annotationView?.annotation = annotation
         }
 
         return annotationView;
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("clicouuuu")
     }
  }
 
