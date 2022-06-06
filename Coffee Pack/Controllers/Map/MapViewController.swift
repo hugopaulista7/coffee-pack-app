@@ -22,9 +22,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Declarations
     private var companies: [Company] = []
+    private var center: CLLocationCoordinate2D = CLLocationCoordinate2D()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .dark
+        }
         getData()
         setupMap()
     }
@@ -32,12 +36,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func setupMap() {
         mapViewOutlet.delegate = self
         locationService.handleMapAuthorization()
-        guard let distance = locationService.getLocationDisance() else { return }
-        let coords = locationService.getCoords()
-        let region = MKCoordinateRegion(center: coords, latitudinalMeters: distance, longitudinalMeters: distance)
-        mapViewOutlet.setRegion(region, animated: true)
-        mapViewOutlet.showsUserLocation = true
-        mapViewOutlet.pointOfInterestFilter = .excludingAll
+        center = locationService.getCoords()
+        setupCenter()
+        setupCamera()
     }
     
     func getData() {
@@ -91,6 +92,23 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("clicouuuu")
+    }
+    
+    private func setupCenter() {
+        guard let distance = locationService.getLocationDisance() else { return }
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: distance, longitudinalMeters: distance)
+        mapViewOutlet.setRegion(region, animated: true)
+        mapViewOutlet.showsUserLocation = true
+        mapViewOutlet.pointOfInterestFilter = .excludingAll
+    }
+    
+    private func setupCamera() {
+        
+        let mapCamera: MKMapCamera = mapViewOutlet.camera
+        mapCamera.pitch = 45.0
+        mapCamera.altitude = 650.0
+        
+        mapViewOutlet.setCamera(mapCamera, animated: true)
     }
  }
 
