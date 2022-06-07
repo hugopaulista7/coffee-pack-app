@@ -49,12 +49,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func addAnnotations() {
-        for item in companies {
+        for (index, item) in companies.enumerated() {
             guard let latitude = Double(item.lat) else { continue }
             guard let longitude = Double(item.long) else { continue }
-            let annotation = MKPointAnnotation()
+            let annotation = Annotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             annotation.title = item.name
+            annotation.index = index
+            
             
             mapViewOutlet.addAnnotation(annotation)
         }
@@ -72,16 +74,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.markerTintColor = .black
             annotationView?.glyphTintColor = .systemGreen
-            annotationView?.canShowCallout = true
+            annotationView?.canShowCallout = false
             annotationView?.animatesWhenAdded = true
             
-            let button = UIButton(type: .custom) as UIButton
-            button.frame.size.width = 44
-            button.frame.size.height = 44
-            button.backgroundColor = .systemGreen
-            button.setTitle("Teste", for: .normal)
-            button.setTitleColor(.black, for: .normal)
-            annotationView?.leftCalloutAccessoryView = button
+//            let button = UIButton(type: .custom) as UIButton
+//            button.frame.size.width = 44
+//            button.frame.size.height = 44
+//            button.backgroundColor = .systemGreen
+//            button.setTitle("Teste", for: .normal)
+//            button.setTitleColor(.black, for: .normal)
+//            annotationView?.leftCalloutAccessoryView = button
             
         } else {
             annotationView?.annotation = annotation
@@ -90,8 +92,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         return annotationView;
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        print("clicouuuu")
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let modalController = HomeCardViewController(nibName: "HomeCardViewController", bundle: nil)
+        guard let annotation = view.annotation as? Annotation else { return }
+        let company = companies[annotation.index]
+        
+        modalController.setContent(title: company.name, description: company.address, image: "")
+        modalController.modalPresentationStyle = .pageSheet
+        present(modalController, animated: true, completion: nil)
+        
     }
     
     private func setupCenter() {
@@ -106,8 +115,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         let mapCamera: MKMapCamera = mapViewOutlet.camera
         mapCamera.pitch = 45.0
-        mapCamera.altitude = 650.0
-        
+        mapCamera.altitude = 1250.0
         mapViewOutlet.setCamera(mapCamera, animated: true)
     }
  }
